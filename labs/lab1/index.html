@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Set meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    
+    <!-- Load CSS, including Bootstrap -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    
+    <!-- Load JavaScript, including Bootstrap and jQuery -->
+    <script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="resources/js/script.js"></script>
+    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <title>Tweet Ticker - Lab 1 - Collin Jones</title>
+  </head>
+  <body>
+    <!-- Header Row -->
+    <div class="row">
+      <div class="col-12">
+        <h1 class="center-header">Tweet Ticker</h1>
+      </div>
+    </div>
+    
+    <!-- Row of "table headers" per se -->
+    <div class="row">
+      <div class="col-md-2" id="left-bar"></div>
+      <div class="col-md-2">
+        <h3>Popular Hashtags</h3>
+      </div>
+      <div class="col-md-6">
+        <h3>Tweets</h3>
+      </div>
+      <div class="col-md-2" id="right-bar"></div>
+    </div>
+    
+    <!-- Data row -->
+    <div class="row">
+      <!-- Offset -->
+      <div class="col-md-2" id="left-bar"></div>
+      <!-- Popular hashtags - populated by JavaScript -->
+      <div class="col-md-2" id="popular-hashtags">
+        <a href="#" class="hashtag" id="hashtag-0">No hashtag found.</a>
+        <a href="#" class="hashtag" id="hashtag-1">No hashtag found.</a>
+        <a href="#" class="hashtag" id="hashtag-2">No hashtag found.</a>
+        <a href="#" class="hashtag" id="hashtag-3">No hashtag found.</a>
+        <a href="#" class="hashtag" id="hashtag-4">No hashtag found.</a>
+      </div>
+      
+      <!-- Tweet ticker box - populated by JavaScript -->
+      <div class="col-md-6">
+        <div id="tweet-box">
+          <div class="tweet"><p class="none">No tweet found.</p></div>
+          <div class="tweet"><p class="none">No tweet found.</p></div>
+          <div class="tweet"><p class="none">No tweet found.</p></div>
+          <div class="tweet"><p class="none">No tweet found.</p></div>
+          <div class="tweet"><p class="none">No tweet found.</p></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
