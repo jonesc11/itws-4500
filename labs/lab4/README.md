@@ -11,7 +11,8 @@ Move this into some sort of hosted folder on your computer. It does not have to 
 When the page gets too small, the icons in the menu collapse in a not-so-pretty way. Therefore, when the screen got down to Bootstrap XS size, I removed all icons besides home and made them into a list on the homepage. That way, you can still navigate to them,
 but it's easier to read.
 
-I used OpenWeatherMap instead of DarkSky because it gave me the town name without using the Google Maps API. DarkSky gave a bit more data per request, but that's the tradeoff I made. It was mostly secondary data like dew point.
+I used OpenWeatherMap instead of DarkSky because it gave me the town name without using the Google Maps API. DarkSky gave a bit more data per request, but that's the tradeoff I made. It was mostly secondary data like dew point. Additionally, similarly to lab 2,
+I left the keys right in the client-side JavaScript because this isn't a production application, and it was easier to do this than to write multiple other scripts to do it for me.
 
 I chose to use AngularJS instead of Angular 2, 4, or 5 because that is the Angular framework I am most familiar with.
 
