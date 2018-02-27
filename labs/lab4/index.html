@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="weatherApp">
+  <head>
+    <!-- Set meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    
+    <!-- Load CSS, including Bootstrap -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="resources/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="resources/css/style.css" />
+    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <title>Weather Application v2 - Lab 4 - Collin Jones</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <li><a href="#/">Home</a></li>
+      <li ng-repeat="link in links" class="weather-nav-link"><a href="{{link.href}}">{{link.view}}</a></li>
+    </div>
+    
+    <div ng-view=""></div>
+    
+    <!-- Load JavaScript, including jQuery, Bootstrap, and AngularJS -->
+    <script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="resources/js/angular.min.js"></script>
+    <script type="text/javascript" src="resources/js/angular-route.js"></script>
+    <script type="text/javascript" src="resources/js/script.js"></script>
+  </body>
+</html>

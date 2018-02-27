@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.row {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  height: 54px;
+  width: 100%;
+  box-shadow: 0 0 5px;
+  padding: 0 16px;
+  background-color: #ddd;
+  margin-bottom: 8px;
+}
+
+#navbar li {
+  display: inline-block;
+  list-style: none;
+  padding: 15px;
+  background-color: #ddd;
+}
+
+#navbar li:hover {
+  background-color: #bbb;
+}
+
+#navbar li a {
+  color: #555;
+}
+
+#navbar li a:hover {
+  text-decoration: underline;
+}
+
+#cities {
+  width: 95%;
+  margin: auto;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #navbar .weather-nav-link {
+    display: none;
+  }
+  
+  #cities {
+    display: block;
+  }
+}
+
+.weather-card {
+  width: 95%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px;
+  padding: 16px;
+  margin: 8px auto;
+}
+
+.icon {
+  font-size: 24px;
+  display: inline-block;
+  width: 50%;
+}
+
+.temperature {
+  font-size: 36px;
+  text-align: right;
+  width: 48%;
+  display: inline-block;
+}
+
+.temperature p {
+  margin: 0;
+}
+
+.other-data {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.other-data p {
+  margin: 0;
+}

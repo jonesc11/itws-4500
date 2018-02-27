@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 col-xs-12">
+    <h1>Current Weather in {{ weather.city }}</h1>
+    <div class="weather-card">
+      <div class="temperature float-right">
+        <p class="real-temperature">{{ weather.temp }}&#176; F</p>
+      </div>
+      <div class="icon">
+        <p>
+          <img src="http://openweathermap.org/img/w/{{weather.weather.icon}}.png" alt="{{weather.weather.main}}" />
+          {{weather.weather.main}}
+        </p>
+      </div>
+      <div class="other-data">
+        <p>Humidity: {{weather.humidity}}%</p>
+        <p>Pressure: {{weather.pressure}} hPa</p>
+        <p>Wind speed at {{weather.windSpeed}} miles per hour from {{weather.windDir}}</p>
+      </div>
+    </div>
+  </div>
+</div>

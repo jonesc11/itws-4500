@@ -20,5 +20,11 @@ The purpose of this lab was to set up Git and a bug tracking tool, as well as to
 
 * Bugzilla is installed on our Ubuntu AWS instance. A screenshot of the setup can be found in my lab 3 submission named "BugzillaSetup-Page-Server.GIF" or you can see it live at http://ec2-34-239-101-4.compute-1.amazonaws.com/bugzilla
 
-* Because of AWS's security rules, we cannot give a user (i.e. Rahul and Professor Fox) access to the AWS box without their public keys - However, if I have those keys, I would be more than willing to create accounts for you both and give you access. 
-The GitHub page has already been shared with you.
+* Professor Fox's public key has been added to our AWS instance. The login information is as follows:
+
+Hostname: ec2-34-239-101-4.compute-1.amazonaws.com
+Port: 22
+Username: pfox
+Password: Password1 (can be changed with "passwd")
+
+Since I do not have Rahul's public key, I cannot add him to the box, but I can add it to the box if he sends it to me.

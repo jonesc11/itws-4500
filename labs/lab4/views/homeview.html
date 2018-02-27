@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 col-xs-12">
+    <h1>Weather Application v2</h1>
+    <p>This application is an extension of lab 2's weather application. Instead of just getting your
+       current location and displaying the weather, you can also enter a zip code below and save / view
+       the weather for that city.</p>
+    <div id="cities">
+      <ul>
+        <li ng-repeat="link in links"><a href="{{link.href}}">{{link.view}}</a></li>
+      </ul>
+    </div>
+    <div id="errors"></div>
+    <p>
+      <label for="zipcode">Zip Code</label>
+      <input type="text" name="zipcode" class="form-control" />
+      <br />
+      <input type="submit" value="Add Location" class="form-control" name="add-location" ng-click="onSubmit()" />
+    </p>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "name": "jonesc11-quiz1server.js",
+  "version": "1.0.0",
+  "description": "Collin Jones's quick temperature checker for ITWS4500 quiz 1",
+  "main": "jonesc11-Quiz1Server.js",
+  "scripts": {
+    "start": "node jonesc11-Quiz1Server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Collin Jones",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
