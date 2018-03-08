@@ -1,0 +1,19 @@
+{
+  "name": "jonesc11-lab5server",
+  "version": "1.0.0",
+  "description": "Collin Jones's Tweet Scraper for ITWS-4500 Web Science Systems Development Lab 5",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Collin Jones",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4",
+    "twitter": "^1.7.1"
+  }
+}
