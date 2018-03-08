@@ -1,0 +1,68 @@
+# Accounts
+
+This is an account object for the administrators of the system and class instructors.
+
+{
+  "password": "<string>",
+  "salt": "<string>",
+  "login_url": "<string>",
+  "profile_image": "<string>",
+  "first_name": "<string>",
+  "last_name": "<string>",
+  "biography": "<string>",
+  "email": "<string>",
+  "is_admin": <boolean>
+}
+
+password: The user's password hashed with the salt (also identified in the field).
+salt: A random string that is hashed with the password multiple times to authenticate a user.
+login_url: The url that is emailed to the instructor when the administrator creates an account. This is unique and invalid
+    after the instructor creates his / her password.
+profile_image: The name of the image on the server to be displayed for that instructor.
+first_name: The first name of the instructor.
+last_name: The last name of the instructor.
+biography: A short biography for the instructor that is displayed on the instructor's profile.
+email: The instructor's email address to be displayed on the front end and used for communications from the server.
+is_admin: True if the user is an administrator, false if the user is an instructor.
+
+# Classes
+
+{
+  "name": "<string>",
+  "start_date": <date>,
+  "end_date": <date>,
+  "frequency": {
+    "days_of_week": ["<string>", ...],
+    "start_time": <time>,
+    "end_time": <time>
+  },
+  "semester": {
+    "year": <integer>,
+    "term": "Spring"|"Summer"|"Fall"
+  },
+  "instructors": ["<string>", ...]
+  "description": "<string>",
+  "type": "<string>",
+  "persons_enrolled": [
+    {
+      "email_address": "<string>",
+      "payment_method": "Bursar"|"Check"|"Cash"|"Card",
+      "paid": <boolean>
+    }, ...
+  ]
+}
+
+name: The name of the course.
+start_date: The date of the first class.
+end_date: The date of the last class.
+frequency.days_of_week: The day(s) of the week that the course is offered.
+frequency.start_time: The time that the class starts on the days of the week specified in frequency.start_time
+frequency.end_time: The time that the class ends on the days of the week specified in the frequency.end_time
+semester.year: Specifying the calendar year that the course is offered.
+semester.term: Specifying which semester of the year the course is offered.
+instructors: A list of ObjectIDs that relate to the accounts database that specify all instructors teaching the course.
+description: A short description of the class to be displayed on the front end.
+type: The type of class, i.e. fitness, crafts, etc.
+persons_enrolled.email_address: Email address for the user to be contacted by through the system.
+persons_enrolled.payment_method: Specifies how the student is paying or has paid.
+persons_enrolled.paid: True if the user has paid, false otherwise.
