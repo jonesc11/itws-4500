@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="twitterApp">
+  <head>
+    <!-- Load CSS, including Bootstrap -->
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/resources/css/datatables.min.css" />
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    
+    <!-- Load JavaScript, including AngularJS, jQuery, Bootstrap, Socket.io and Popper -->
+    <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular-route.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/resources/js/socket.io.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
+    
+    <title>Tweet Request Application - Lab 6 - Collin Jones</title>
+  </head>
+  <body ng-controller="MainController">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="center">Twitter Scraper</h1>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Filters column -->
+      <div class="col-md-4">
+        <h3>Choose filters:</h3>
+        <span class="aside">If no filters are specified, program will default to location-based filters on RPI's campus</span><br/><br/>
+        <form class="form-group" id="filter-form">
+          <!-- Choose number of tweets to stream -->
+          <label for="number">
+            <h5>Tweet Limit</h5>
+            <span class="aside">Number of tweets to be returned</span>
+          </label>
+          <input name="number" type="number" class="form-control" value=10 /><br/>
+          <!-- Location part of the field -->
+          <input type="checkbox" name="location" ng-click="onCheck('location')" />
+          <label for="location">
+            <h5>Location</h5>
+            <span class="aside">Stream tweets from the SW corner to the NE corner specified</span>
+          </label>
+          <input name="sw-lon" type="text" placeholder="SW Corner Longitude" class="form-control" disabled />
+          <input name="sw-lat" type="text" placeholder="SW Corner Latitude" class="form-control" disabled /><br/>
+          <input name="ne-lon" type="text" placeholder="NE Corner Longitude" class="form-control" disabled />
+          <input name="ne-lat" type="text" placeholder="NE Corner Latitude" class="form-control" disabled /><br/>
+          <!-- Tweet users -->
+          <input type="checkbox" name="user" ng-click="onCheck('user')" />
+          <label for="user">
+            <h5>User</h5>
+            <span class="aside">Stream tweets, retweets, replies, and replies to the specified user</span>
+          </label>
+          <input name="tweeter" type="text" placeholder="Twitter Handle" class="form-control" disabled /><br/>
+          <!-- Other search queries -->
+          <input type="checkbox" name="other" ng-click="onCheck('other')" />
+          <label for="other">
+            <h5>Other Queries</h5>
+            <span class="aside">Stream tweets with specified hashtags or text</span>
+          </label>
+          <input name="query" type="text" placeholder="Search Query" class="form-control" disabled /><br/>
+          <label for="export">
+            <h5>Export Format</h5>
+            <span class="aside">Choose to either export the tweets as a JSON or CSV file.</span>
+          </label>
+          <select class="form-control" name="export">
+            <option value="json">JSON</option>
+            <option value="csv">CSV</option>
+          </select><br/>
+          <!-- Submit button - disables when tweets are loading -->
+          <button ng-click="onSubmit()" class="btn btn-primary" id="scrape-button">Scrape Tweets</button>
+        </form>
+      </div>
+      <!-- Tweet column -->
+      <div class="col-xs-12 col-md-8">
+        <div id="tweetwell">
+          <h3 class="waiting">Tweet will appear when filters are chosen.</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
