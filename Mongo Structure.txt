@@ -11,7 +11,9 @@ This is an account object for the administrators of the system and class instruc
   "last_name": "<string>",
   "biography": "<string>",
   "email": "<string>",
-  "is_admin": <boolean>
+  "phone": "<string>",
+  "is_admin": <boolean>,
+  "is_instructor": <boolean>
 }
 
 password: The user's password hashed with the salt (also identified in the field).
@@ -23,30 +25,35 @@ first_name: The first name of the instructor.
 last_name: The last name of the instructor.
 biography: A short biography for the instructor that is displayed on the instructor's profile.
 email: The instructor's email address to be displayed on the front end and used for communications from the server.
-is_admin: True if the user is an administrator, false if the user is an instructor.
+is_admin: True if the user is an administrator, false otherwise.
+is_instructor: True if the user is an instructor, false otherwise.
 
 # Classes
 
 {
   "name": "<string>",
-  "start_date": <date>,
-  "end_date": <date>,
-  "frequency": {
-    "days_of_week": ["<string>", ...],
-    "start_time": <time>,
-    "end_time": <time>
-  },
+  "sessions": [{
+    "start_date": <date>,
+    "end_date": <date>,
+    "frequency": {
+      "days_of_week": ["<string>", ...],
+      "start_time": <time>,
+      "end_time": <time>
+    },
+    "instructor": "<string>",
+    "session_id": <integer>,
+    "room": "<string>"
+  },...],
   "semester": {
     "year": <integer>,
     "term": "Spring"|"Summer"|"Fall"
   },
-  "instructors": ["<string>", ...]
   "description": "<string>",
   "type": "<string>",
   "persons_enrolled": [
     {
       "email_address": "<string>",
-      "payment_method": "Bursar"|"Check"|"Cash"|"Card",
+      "payment_method": "Bursar"|"Check"|"Cash",
       "paid": <boolean>
     }, ...
   ]
