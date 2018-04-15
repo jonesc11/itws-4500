@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="twitterApp">
+  <head>
+    <!-- Load all CSS -->
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/resources/css/datatables.min.css" />
+    <link rel="stylesheet" href="/resources/css/style.css" />
+
+    <!-- Load all JS -->
+    <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular-route.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
+
+    <title>Home - Tweet Scraping Application - Lab 8 - Collin Jones</title>
+  </head>
+  <body ng-controller="IndexController">
+    <div class="row">
+      <div class="col-md-12" id="nav">
+        <a ng-repeat="link in links" href="{{link.link}}" title="{{link.title}}">{{link.title}}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1 class="text-center">Welcome to the Twitter Scraper!</h1>
+        <div ng-if="loggedIn">
+          <p>Welcome to the Twitter Scraping Machine! You can view your past searches <a href="/mongo" title="View Past Searches">here</a> or you can create a new search at <a href="/ticker" title="Create New Search">here</a>.</p>
+        </div>
+        <div ng-if="!loggedIn">
+          <p>Welcome to the Twitter Scraping Machine! To use the machine, you must sign in. If you have an account, <a href="/login" title="Login">log in here</a>. If you do not have an account, <a href="/signup" title="Sign Up">create one here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

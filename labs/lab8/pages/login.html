@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="twitterApp">
+  <head>
+    <!-- Load all CSS -->
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/resources/css/datatables.min.css" />
+    <link rel="stylesheet" href="/resources/css/style.css" />
+
+    <!-- Load all JS -->
+    <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular-route.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
+
+    <title>Login - Tweet Scraping Application - Lab 8 - Collin Jones</title>
+  </head>
+  <body ng-controller="LoginController">
+    <div class="row">
+      <div class="col-md-12" id="nav">
+        <a ng-repeat="link in links" href="{{link.link}}" title="{{link.title}}">{{link.title}}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1 class="text-center">Login</h1>
+        <p>Don't have an account? <a href="/signup" title="Create an Account">Sign up here!</a></p>
+        <form method="post" action="/login">
+          <label for="username">Username</label>
+          <input ng-model="username" type="text" name="username" placeholder="Username" class="form-control" />
+          <label for="password">Password</label>
+          <input ng-model="password" type="password" name="password" placeholder="Password" class="form-control" />
+          <input type="submit" class="btn btn-primary" value="Login" name="submit" />
+        </form>
+    </div>
+  </body>
+</html>

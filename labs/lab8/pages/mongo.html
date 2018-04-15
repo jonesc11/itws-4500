@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="twitterApp">
+  <head>
+    <!-- Load all CSS -->
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/resources/css/datatables.min.css" />
+    <link rel="stylesheet" href="/resources/css/style.css" />
+
+    <!-- Load all JS -->
+    <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/popper.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular.min.js"></script>
+    <script type="text/javascript" src="/resources/js/angular-route.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
+
+    <title>View Past Searches - Tweet Scraping Application - Lab 8 - Collin Jones</title>
+  </head>
+  <body ng-controller="MongoController">
+    <div class="row">
+      <div class="col-md-12" id="nav">
+        <a ng-repeat="link in links" href="{{link.link}}" title="{{link.title}}">{{link.title}}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1 class="text-center">Load Previous Searches</h1>
+        <div id="searches" ng-show="searchesShow">
+          <div class="single-result" ng-repeat="search in searches" ng-click="onClick()">
+            <h5>Search at {{search.date}}</h5>
+            <p>Filters: {{search.filters}}</p>
+          </div>
+        </div>
+        <div ng-hide="searchesShow">
+          <div class="tweet" ng-repeat="tweet in tweets">
+            <div class="image">
+              <a href="http://www.twitter.com/{{tweet.user_screen_name}}" title="Visit {{tweet.user_screen_name}}'s page">
+                <img src="{{tweet.user_profile_image_url}}" alt="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" />
+              </a>
+            </div>
+            <div class="tweet-text">
+              <p><a href="http://www.twitter.com/{{tweet.user_screen_name}}" title="View {{tweet.user_screen_name}}'s profile" class="tweeter">{{tweet.user_name}}: @{{tweet.user_screen_name}}</a>{{tweet.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
