@@ -104,13 +104,12 @@ twitterApp.controller ('MainController', function ($scope) {
   });
 
   socket.on ('searchReturn', function (data) {
-    console.log(data);
     searchResults = data;
     var newhtml = '<div class="search-results">';
-console.log(searchResults);
+
     for (var i = 0; i < data.length; ++i) {
       var date = new Date (data[i].createdTime);
-      newhtml += '<div class="single-result" objectid = "' + data[i]._id + '">';
+      newhtml += '<div class="single-result" objectid="' + data[i]._id + '">';
       newhtml += '<h5>Search at ' + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</h5>';
       newhtml += '<p>Filters: '
       if (data[i].filter.locations)
@@ -130,7 +129,18 @@ console.log(searchResults);
 
       for (var i = 0; i < searchResults.length; ++i) {
         if (searchResults[i]._id === objectid) {
-          console.log(searchResults[i]);
+          var tweets = '<div class="modaltweets">';
+
+          for (var j = 0; j < searchResults[i].tweets.length; ++j) {
+            tweets += '<div class="modaltweet">';
+            tweets += '<strong><a href="http://twitter.com/' + searchResults[i].tweets[j].user_screen_name + '" title="View user page">@' + searchResults[i].tweets[j].user_screen_name + '</a></strong> ';
+            tweets += searchResults[i].tweets[j].text;
+            tweets += '</div>';
+          }
+
+          tweets += '</div>';
+
+          $('.modal-body').html(tweets);
         }
       }
     });
