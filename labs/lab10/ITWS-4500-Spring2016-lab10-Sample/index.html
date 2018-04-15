@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tweets app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/tweet.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id = "container" class="container">
+		<div id = "tweetsContainer" class="col-xs-12 col-md-6">
+			<ul id="tweets" class="tweeclass"></ul>	
+		</div>
+		<div id = "hashContainer" class="col-xs-6 col-md-3">
+			<ul id="hashtags" class="hashclass"></ul>	
+		</div>
+	</div>
+
+	<div id="dough" class="container">
+		<h4>Tweet Source</h4>
+		<canvas id="myChart" width="400" height="400"></canvas>
+		<ul id="legend" class="col-xs-4 col-md-4">
+			<li><div class="legendItem row" id="web"></div>web</li>
+			<li><div class="legendItem row" id="iPhone"></div>iPhone</li>
+			<li><div class="legendItem row" id="Android"></div>Android</li>
+			<li><div class="legendItem row" id="BlackBerry"></div>BlackBerry</li>
+			<li><div class="legendItem row" id="Others"></div>Others</li>
+		</ul>
+	</div>
+	
+		
+	<script type="text/javascript" src="js/tweets.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/Chart.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script>
+	/*count, variable to keep the order of the tweets
+	every 3 seconds 
+	{ 
+		fetch the next few tweets from the database
+			loop (i = count to count + 5 )
+				prepend tweets[i].text to the ul
+				delete the last tweet
+
+		count += 5; 
+	}
+	reduce height to show only 5
+	*/
+
+	//get graph data
+	$.get( "/getSourceCount", success, "json" );
+	function success(dat){
+		console.log(dat);
+		var data = 
+		[
+			{
+				value: dat[0],
+				color:"#F81F71"
+			},
+			{
+				value : dat[1],
+				color : "#F4F0F2"
+			},
+			{
+				value : dat[2],
+				color : "#464646"
+			},
+			{
+				value : dat[3],
+				color : "#00CDEF"
+			},
+			{
+				value : dat[4],
+				color : "#C2F30D"
+			}
+
+		]
+		var ctx = $("#myChart").get(0).getContext("2d");
+		var myNewChart = new Chart(ctx).Doughnut(data);
+	}
+
+	//Pre-load first 5 tweets onto the screen
+	for(var i = 0; i < 5; i++){
+		var img = tweets[i].profile_background_image_url;
+		//$("#tweets").prepend("<li>" + tweets[i].text + "</li>");
+		
+		$("#tweets").prepend("<li><div class='dp' style='background-image: url(" + tweets[i].user.profile_image_url + ")'></div> <div class='tweet'>" + tweets[i].text + "</div></li>");
+	}
+	var count = 5;
+
+	//Every 2 seconds prepend a tweet the ul and delete the last tweet
+	var timer = setInterval(function(){
+		if(count == tweets.length) count = 0;
+		var listItemHTML = "<li><div class='dp' style='background-image: url(" + tweets[count].user.profile_image_url + ")'></div> <div class='tweet'>" + tweets[count].text + "</div></li>";
+		$(listItemHTML)
+	        .hide()
+	        .css('opacity',0.0)
+	        .prependTo('#tweets')
+	        .slideDown('slow')
+	        .animate({opacity: 1.0});
+	    if (count != tweets.length) count ++;
+		$("#tweets li:gt(5):last").remove();
+	} , 2000);
+
+
+	//hashtags
+	var count = 0;
+	var j=0;
+	while(j < 5){
+		if(tweets[count].entities.hashtags.length != 0){
+			$("#hashtags").prepend("<li> #" + tweets[count].entities.hashtags[0].text + "</li>");
+			j++;
+		}
+		count++;
+	}
+	var timer = setInterval(function(){
+		if(count == tweets.length) count = 0;
+		while(tweets[count].entities.hashtags.length == 0){
+			count++;
+		}
+		var listItemHTML = "<li> #" + tweets[count].entities.hashtags[0].text + "</li>";
+		$(listItemHTML)
+	        .hide()
+	        .css('opacity',0.0)
+	        .prependTo('#hashtags')
+	        .slideDown('slow')
+	        .animate({opacity: 1.0});
+		if (count != tweets.length) count ++;
+		$("#hashtags li:gt(5):last").remove();
+	} , 2200);
+	</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body{
+    background-color: #e0e0e0;
+	
+}
+#container {
+	margin: auto;
+}
+
+#tweets{
+    width: auto;
+    margin-top: 30px;
+    float: left;
+
+    height: 325px;
+    overflow: hidden;
+}
+
+#hashtags{
+    margin-top: 30px;
+
+    height: 325px;
+    overflow: hidden;
+}
+
+#tweets > li {
+	box-shadow: rgba(0, 0, 0, 0.54) 0px 1px 3px 0px;
+	background-color: white;
+	list-style: none;
+	color: #3498db;
+	margin-bottom: 5px;
+	padding-right: 10px;
+	padding-top: 5px;
+	text-align: left;
+	padding-left: 10px;
+	height: 60px;
+	padding-top: 4px;
+	overflow: hidden;
+}
+
+#hashtags > li {
+	box-shadow: rgba(0, 0, 0, 0.54) 0px 1px 3px 0px;
+	background-color: #3498db;
+	list-style: none;
+	color: white;
+	margin-bottom: 5px;
+	/* border-radius: 5px; */
+	text-align: left;
+	padding-left: 10px;
+	height: 60px;
+	padding-top: 4px;
+	overflow: hidden;
+}
+
+.dp{
+	float: left;
+	width: 48px;
+	margin-right: 10px;
+	height: 48px;
+	border-radius: 24px;
+}
+
+.tweet{
+	
+}
+
+#dough{
+	margin-top: 50px;
+
+}
+
+#dough h4{
+	margin-bottom: 20px;
+}
+
+#mychart{
+	float: left;
+}
+
+#legend{
+	padding-left: 90px;
+	list-style: none;
+	margin-top: 100px;
+	font-size: 24px;
+}
+
+#legend li{
+
+}
+
+.legendItem{
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	border: 2px rgb(117, 117, 117) solid;
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+}
+#web{
+	background-color: #F81F71;
+}
+
+#iPhone{
+	background-color: #F4F0F2;
+}
+#Android{
+	background-color: #464646;
+}
+#BlackBerry{
+	background-color: #00CDEF;
+}
+#Others{
+	background-color: #C2F30D;
+}
