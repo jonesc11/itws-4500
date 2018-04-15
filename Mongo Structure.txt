@@ -13,7 +13,9 @@ This is an account object for the administrators of the system and class instruc
   "email": "<string>",
   "phone": "<string>",
   "is_admin": <boolean>,
-  "is_instructor": <boolean>
+  "is_instructor": <boolean>,
+  "img_is_flagged": <boolean>,
+  "bio_is_flagged": <boolean>
 }
 
 password: The user's password hashed with the salt (also identified in the field).
@@ -32,26 +34,24 @@ is_instructor: True if the user is an instructor, false otherwise.
 
 {
   "name": "<string>",
-  "sessions": [{
-    "start_date": <date>,
-    "end_date": <date>,
-    "frequency": {
-      "days_of_week": ["<string>", ...],
-      "start_time": <time>,
-      "end_time": <time>
-    },
-    "instructor": "<string>",
-    "session_id": <integer>,
-    "room": "<string>"
-  },...],
+  "frequency": {
+    "days_of_week": ["<string>", ...],
+    "start_time": <time>,
+    "end_time": <time>
+  },
+  "instructor": "<string>",
+  "room": "<string>"
   "semester": {
     "year": <integer>,
     "term": "Spring"|"Summer"|"Fall"
   },
   "description": "<string>",
   "type": "<string>",
+  "is_archived": <boolean>,
+  "is_sign_up_able": <boolean>,
   "persons_enrolled": [
     {
+      "name": "<string>",
       "email_address": "<string>",
       "payment_method": "Bursar"|"Check"|"Cash",
       "paid": <boolean>
